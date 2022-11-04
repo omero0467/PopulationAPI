@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "PT Serif", serif;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  flex-direction: column;
+}
+
+.btn {
+  padding: 5px;
+  margin: 5px;
+  font-size: 17px;
+  background-color: lightblue;
+  border: 2px solid lightcyan;
+  border-radius: 0.3rem;
+  color: rgb(255, 111, 0);
+}
+
+.chart {
+  width: 60vw;
+  height: fit-content;
+}
+
+.overlay {
+  position: absolute;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+.overlay > h1 {
+  text-shadow: black 5px 5px 5px;
+  color: white;
+  margin-bottom: 10rem;
+  font-size: 4rem;
+}
+.overlay .Continents-Selection > button {
+  box-shadow: 5px 4px 5px black;
+  color: #222;
+}
+
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */
