@@ -6,6 +6,7 @@ const countreyBtns = document.querySelector('.countreyBtns')
 const mainChartDiv = document.querySelector('.chart')
 const overlay = document.querySelector('.overlay')
 let currentCon;
+let isLoading = true
 
 function setEvents () {
 ContinentsSelection.addEventListener('click',continentSelect)
@@ -70,18 +71,28 @@ function continentSelect(e){
                 label: 'Population',
                 data: yPopulationDataArr,
                 backgroundColor: 
-                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(75, 192, 192, 0.4)',
                 borderColor: 
                     'rgba(75, 192, 192, 1)',
                 borderWidth: 1
             }]
         },
         options: {
-            plugins:{title:{
+            plugins:{
+                title:{
               display:true,
               text: title,
-              fontSize:50,
-            },},
+              font:{
+                size:30,
+              },
+              
+            },
+            legend: {
+                // fullSize: true,
+                position: 'right',
+                align:'top'
+            }
+        },
             responsive: true,
             scales: {
                 y: {
@@ -136,9 +147,18 @@ function addGlobalEventListenet(type, selector, callback) {
     });
   }
 
+  async function showLoad() {
+await appFuncs.fetchDataFromContinents()
+isLoading=false
+  }
 
-  
-
+function load() {
+    if(!isLoading){
+        spinner.classList.toggle('hidden')
+    }
+}
+showLoad()
+load()
 
 createNewBtn(appFuncs.continentsArr,ContinentsSelection,'continent')
 setEvents()

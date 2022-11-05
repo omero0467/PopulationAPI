@@ -1,8 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
+.dot {
+  background-color: rgb(255, 255, 255);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: inline-block;
+  animation: scaling 2.5s ease-in-out infinite;
+}
+
+@keyframes scaling {
+  0%, 100% {
+    transform: scale(0.1);
+    background-color: gray;
+  }
+  50% {
+    transform: scale(1);
+    background-color: orange;
+  }
+}
+.dot:nth-child(0) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
 * {
   margin: 0;
   padding: 0;
   font-family: "PT Serif", serif;
+}
+
+body {
+  overflow-y: hidden;
+  background-color: rgba(201, 255, 246, 0.7960784314);
 }
 
 .main-container {
@@ -12,22 +52,28 @@
 }
 
 .main-container {
-  flex-direction: column;
+  height: 100vmin;
+}
+
+.sideMenu .countreyBtns > button {
+  background-color: rgba(201, 255, 246, 0);
+  border: none;
+  border-top: 2px solid #FFB74D;
+  border-bottom: 2px solid #FFB74D;
+  color: #444;
+  font-weight: 700;
+  text-shadow: 2px 2px 3px #FF7043;
 }
 
 .btn {
   padding: 5px;
-  margin: 5px;
   font-size: 17px;
-  background-color: lightblue;
-  border: 2px solid lightcyan;
-  border-radius: 0.3rem;
-  color: rgb(255, 111, 0);
+  cursor: pointer;
 }
 
 .chart {
-  width: 60vw;
-  height: fit-content;
+  width: 70vmax;
+  margin: 10rem;
 }
 
 .overlay {
@@ -47,12 +93,38 @@
   font-size: 4rem;
 }
 .overlay .Continents-Selection > button {
+  margin-right: 10px;
   box-shadow: 5px 4px 5px black;
   color: #222;
 }
 
+.sideMenu {
+  position: absolute;
+  right: 0;
+  margin-top: 2rem;
+  margin: right 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100vh;
+  overscroll-behavior-block: contain;
+}
+.sideMenu .countreyBtns {
+  display: grid;
+  grid-auto-flow: row;
+}
+.sideMenu .countreyBtns > button {
+  color: #444;
+}
+
 .hidden {
   display: none;
+}
+
+@media (max-width: 650px) {
+  .sideMenu {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
